@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    label{
+      margin:20px;
+      display: block;
+    }
+    code{
+        display: block;
+    }
+  </style>
+</head>
+<body>
+<label>nickname: <input type="text" /></label>
+<label>course select:
+  <select>
+    <option>javascript</option>
+    <option>java</option>
+  </select>
+</label>
+<input type="button" value="submit" />
+<code id="output">
+
+</code>
+<script type="module">
+    if(sessionStorage.getItem("msgStore")){
+        document.getElementById("output").innerHTML = sessionStorage.getItem("msgStore");
+    }
+</script>
+<script type="module">
+    navigator.serviceWorker.register('./serviceWorker.js');
+    navigator.serviceWorker.onmessage = function (ev){
+        let output = function (msg){
+            document.getElementById("output").innerHTML += msg + "<br />";
+            sessionStorage.setItem("msgStore", document.getElementById("output").innerHTML);
+        }
+        output(ev.data);
+    }
+</script>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+    const nickname = this.querySelector("input[type='text']:nth-child(1)");
+    const courseS = this.querySelector("select");
+    const button = this.querySelector("input[type='button']");
+    button.onclick = function (){
+        let course = courseS.selectedOptions[0].innerHTML;
+      sessionStorage.setItem("course",course);
+      sessionStorage.setItem("nickname",nickname.value);
+      location = "./handle.html?course="+course;
+    }
+  })
+</script>
+</body>
+</html>

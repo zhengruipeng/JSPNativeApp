@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link href="course-page.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h1>welcome to javascript club!<span id="nickname"></span></h1>
+<h2>lets have fun together</h2>
+<h3>first of all we prepare some books for you to have a basic knowledge of javascript</h3>
+<ul>
+  <li>The Definite of Javascript</li>
+  <li>High profession of Javascript</li>
+  <li>ES6 essential</li>
+  <li>the working of Web APIs</li>
+</ul>
+<code>WhatWG: you can replace the back end storage with Storage API in the front end,</code>
+  <code>it will make a high performance up in you site.</code>
+<code>Java: what`s your mean???（╬￣皿￣）＝○＃（￣＃）３￣）</code>
+<a href="form.html">返回</a>
+  <script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+    const nicknameContainer = this.querySelector("#nickname");
+    nicknameContainer.innerHTML = sessionStorage.getItem("nickname");
+  })
+</script>
+</body>
+</html>

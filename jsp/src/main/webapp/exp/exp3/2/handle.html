@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>注册成功，信息为</p>
+<a href="index.html">修改信息？</a>
+
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+    let ul = this.createElement("ul");
+    let li1 = this.createElement("li");
+    let li2 = this.createElement("li");
+    let li3 = this.createElement("li");
+    li1.innerHTML = sessionStorage.getItem("name");
+    li2.innerHTML = sessionStorage.getItem("gender");
+    li3.innerHTML = sessionStorage.getItem("hobby").split(",").filter(v => v!=="null").join();
+    ul.appendChild(li1);
+    ul.appendChild(li2);
+    ul.appendChild(li3);
+    document.body.insertBefore(ul,document.querySelector('a'));
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="handle.jsp" enctype="application/x-www-form-urlencoded" method="post">
+    <input type="text" name="name" value="1234" />
+    <input type="text" name="val" value="4321" />
+    <input type="submit" />
+</form>
+<form action="handle.jsp" enctype="application/x-www-form-urlencoded" method="post">
+  <input type="text" name="name" value="1234" />
+  <input type="text" name="val" value="4321" />
+    <input type="submit" />
+    <input type="submit" />
+</form>
+<script type="module" src="fetch2.js"></script>
+<script type="module">
+  document.addEventListener("DOMContentLoaded",function (){
+    const form = this.forms[1];
+    const sub = form.querySelector("input[type='submit']");
+    sub.onclick = function (ev){
+        ev.preventDefault();
+        fetch2("./handle.jsp",{
+            method:'POST',
+            body:new FormData(form),
+            headers:new Headers({
+                "content-type":"application/x-www-form-urlencoded",
+            })
+        }).then(response => response.text())
+            .then(console.log);
+    };
+
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+    let quickposition = function (qk ,low,height){
+      let pointer = low;
+      let p = qk[height];
+      let temp;
+      for(let i = low;i < height;i++){
+        if(qk[i] <= p) {
+          temp = qk[pointer];
+          qk[pointer] = qk[i];
+          qk[i] = temp;
+          pointer++;
+        }
+      }
+      temp = qk[height];
+      qk[height] = qk[pointer];
+      qk[pointer] = temp;
+      return pointer;
+    }
+    let quicksort = function (qk,low,height) {
+      if(low<height) {
+        let position = quickposition(qk,low,height);
+        quicksort(qk,0,position-1);
+        quicksort(qk,position+1,height);
+      }
+    }
+
+      let qk = prompt("输入数组，例如：1,2,3,4,5").split(",").map(v => v-0);
+      console.log("你输入的数组是：");
+      console.log(Array.from(qk));
+
+      quicksort(qk,0,qk.length-1);
+      console.log("排序后是:");
+      console.log(qk);
+      let n = Number.parseInt(prompt("请输入需要获取第几个元素:"));
+      console.log("第"+n+"个元素是:"+qk[n-1]);
+
+  })
+</script>
+</body>
+</html>

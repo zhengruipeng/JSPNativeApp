@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Title</title>
+    <meta charset="UTF-8" />
+    <style>
+        table{
+            border:#ccc solid 1px;
+            border-collapse: collapse;
+            margin:0 auto;
+            text-align: center;
+            width:80vw;
+        }
+        tr:nth-child(even){
+            background-color: #FEF9FE;
+        }
+        td{
+            border:#ccc solid 1px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tbody>
+
+    </tbody>
+</table>
+<a href="input.html">返回</a>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        const tbody = this.querySelector("table>tbody");
+        const fragment = this.createDocumentFragment();
+        for(let i=0;i<sessionStorage.getItem("rows");i++){
+            const tr = document.createElement("tr");
+            for(let j=0;j<sessionStorage.getItem("cols");j++){
+                const td = document.createElement("td");
+                td.innerHTML = `第${i+1}行第${j+1}列`;
+                tr.appendChild(td);
+            }
+            fragment.appendChild(tr);
+        }
+        tbody.appendChild(fragment);
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+      input{
+        margin:20px;
+        display: block;
+      }
+    </style>
+</head>
+<body>
+<input type="text" />
+<input type="text" />
+<input type="button" value="submit" />
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded",function (){
+    const rows = this.querySelector("input[type='text']:nth-child(1)");
+    const cols = this.querySelector("input[type='text']:nth-child(2)");
+    const button = this.querySelector("input[type=button]");
+    button.onclick = function (){
+      sessionStorage.setItem("rows",rows.value);
+      sessionStorage.setItem("cols",cols.value);
+      location = "table-loop.html";
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @keyframes blink {
+            from{
+                opacity: 0;
+            }
+            to{
+                opacity: 1;
+            }
+        }
+        html,body{margin:0;padding:0;
+            background-color:var(--panel-background-color);
+        }
+        body{
+            --panel-background-color:#111;
+            --panel-color:#f2a5aa;
+            --panel-font-family:"Kristen ITC";
+        }
+        main{
+            background-color:var(--panel-background-color);
+            color:var(--panel-color);
+            font-family: var(--panel-font-family);
+            /*height:calc(100vh - 20px);*/
+            width:calc(100vw - 20px);
+            padding:10px;
+        }
+        main::after{
+            content: "_";
+            color:var(--panel-color);
+            font-family: var(--panel-font-family);
+            animation-name: blink;
+            animation-direction: alternate;
+            animation-duration: .5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+        main>div{
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+<main id="main">
+    <p>please drag file director into this board.</p>
+</main>
+
+1,川咲樱,sunny peace,14
+2,长濑琴乃,tsuki no tempest,15
+3,奥山堇,TRINITYAiLE,15
+4,神琦丽央,Liznoir,17
+5,长濑麻奈,星见production,18
+7,伊吹绪,tsuki no tempest,15
+8,城宫铃,tsuki no tempest,14
+9,早坂芽衣,tsuki no tempest,15
+10,兵藤雫,sunny peace,14
+11,一之濑怜,sunny peace,15
+12,白石千纱,sunny peace,14
+13,佐伯瑶子,sunny peace,18
+14,天动留依,TRINITYAiLE,17
+15,铃村优,TRINITYAiLE,16
+16,小美山爱,Liznoir,14
+17,赤琦心,Liznoir,14
+18,白石沙季,tsuki no tempest,15
+101,星井美希,idol m@ster,16
+102,如月千早,idol m@ster,16
+201,伊吹翼,sunny peace,14
+202,最上静香,tsuki no tempest,14
+203,春日未来,idol m@ster,15
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function (){
+        let o = {a:1,b:2};
+        console.log({...o,c:3});
+
+    })
+</script>
+</body>
+</html>
