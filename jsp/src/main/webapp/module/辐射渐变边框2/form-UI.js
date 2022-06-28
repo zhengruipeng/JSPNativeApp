@@ -1,7 +1,7 @@
 (function (){
-    const formEle = this.querySelector("form");
-    const inputContainer = Array.from(this.querySelectorAll(".input-container"));
-    const buttons = Array.from(this.querySelectorAll(".button"));
+    const formEle = document.querySelector("form");
+    const inputContainer = Array.from(document.querySelectorAll(".input-container"));
+    const buttons = Array.from(document.querySelectorAll(".button"));
 
     window.onmousemove = function (e){
         let x = e.x,y = e.y;
@@ -22,8 +22,18 @@
             label.style.opacity = "0";
             inputEle.style.opacity = "1";
             inputEle.style.minWidth = "80%";
-            inputEle.style.left = "5%";
+            inputEle.style.left = "10%";
             inputEle.focus();
+
+            // let maxheight = parseFloat(this.style.height) || this.getBoundingClientRect().height;
+            // console.log(maxheight)
+/*
+            Array.from(inputEle.children).forEach(child => {
+                let rects = child.getBoundingClientRect[0];
+                maxheight = Math.max(rects.height,maxheight);
+            })*/
+            // this.style.height = maxheight + "px";
+
         };
         ele.onmouseout = function (){
             const label = this.querySelector("label");
@@ -33,7 +43,11 @@
             label.style.opacity = "1";
             inputEle.style.opacity = "0";
             // inputEle.style.minWidth = "1px";
-            inputEle.style.left = "50%";
+            inputEle.style.left = "100%";
+
+            // let maxheight = parseFloat(this.style.height) || this.getClientRects()[0].height;
+            // console.log(maxheight)
+            // this.style.height = "100%";
         };
         ele.onselectstart = e => e.preventDefault();
 

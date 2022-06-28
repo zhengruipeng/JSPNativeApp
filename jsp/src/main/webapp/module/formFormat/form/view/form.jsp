@@ -42,7 +42,7 @@
             <li class="menu-item" id="update-monolog">更新日志</li>
 <%--            <li class="menu-item">同步到云端（还没开始做）</li>--%>
             <li class="menu-item">当前时间: <span id="datetime-display"></span></li>
-            <li class="menu-item"><a href="../../demo1.html">回到上一级</a></li>
+            <li class="menu-item"><a href="../../index.html">回到上一级</a></li>
         </ul>
         <ul class="information-form information-form-close">
 
